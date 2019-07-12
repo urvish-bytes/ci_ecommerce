@@ -31,6 +31,7 @@ class Users extends MY_Controller
                 $this->session->set_flashdata('userError', lang('wrong_user'));
             }
         }
+
         $head = array();
         $data = array();
         $head['title'] = lang('user_login');
@@ -51,6 +52,7 @@ class Users extends MY_Controller
                 redirect(LANG_URL . '/checkout');
             }
         }
+
         $head = array();
         $data = array();
         $head['title'] = lang('user_register');
@@ -69,6 +71,7 @@ class Users extends MY_Controller
             }
             redirect(LANG_URL . '/myaccount');
         }
+        
         $head = array();
         $data = array();
         $head['title'] = lang('my_acc');

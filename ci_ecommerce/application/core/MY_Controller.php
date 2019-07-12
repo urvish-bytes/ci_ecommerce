@@ -118,6 +118,7 @@ class MY_Controller extends MX_Controller
                 $actDynPages[] = $acp;
             }
         }
+
         $this->nonDynPages = $actDynPages;
         $dynPages = getTextualPages($activeP);
         $this->dynPages = $this->Public_model->getDynPagesLangs($dynPages);
@@ -140,6 +141,7 @@ class MY_Controller extends MX_Controller
                 $res = $this->Public_model->setSubscribe($arr);
                 $this->session->set_flashdata('emailAdded', lang('email_added'));
             }
+            
             if (!headers_sent()) {
                 redirect();
             } else {
