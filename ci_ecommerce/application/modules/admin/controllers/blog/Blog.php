@@ -18,6 +18,7 @@ class Blog extends ADMIN_Controller
     public function index($page = 0)
     {
         $this->login_check();
+        
         if (isset($_GET['delete'])) {
             $this->Blog_model->deletePost($_GET['delete']);
             redirect('admin/blog');
