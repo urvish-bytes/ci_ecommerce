@@ -78,29 +78,14 @@
                     </div>
                     <div class="container">
                         <div class="row logo-and-search">
-                            <div class="col-sm-5 logo-col">
+                            <div class="col-sm-4 logo-col">
                                 <a href="<?= base_url() ?>">
                                     <img src="<?= base_url('attachments/site_logo/' . $sitelogo) ?>" class="site-logo" alt="<?= $_SERVER['HTTP_HOST'] ?>">
                                 </a>
                             </div>
-                            <div class="col-sm-7">
+                            <div class="col-sm-8">
                                 <div class="row">
                                     <div class="col-sm-5">
-                                        <div class="bag-info">
-                                            <img src="<?= base_url('template/imgs/white-bag.png') ?>" alt="Search">
-                                            <a class="my-basket dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                                <?= lang('your_basket') ?>
-                                                <span class="sum-scope">
-                                                    (<span class="sumOfItems"><?= $cartItems['array'] == 0 ? lang('empty') : $sumOfItems ?></span>)
-                                                </span>
-                                                <i class="fa fa-angle-double-down" aria-hidden="true"></i>
-                                            </a>
-                                            <ul class="dropdown-menu dropdown-menu-right dropdown-cart" role="menu">
-                                                <?= $load::getCartItems($cartItems) ?>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-7">
                                         <form method="GET" id="bigger-search" class="search" action="<?= LANG_URL ?>">
                                             <div class="input-group">
                                                 <input type="text" id="search_in_title" value="<?= isset($_GET['search_in_title']) ? $_GET['search_in_title'] : '' ?>" class="form-control" placeholder="<?= lang('search_for') ?>...">
@@ -174,6 +159,22 @@
                                             </div>
                                         </form>
                                     </div>
+                                    <div class="col-sm-4" style="float: right">
+                                        <div class="bag-info">
+                                            <img src="<?= base_url('template/imgs/white-bag.png') ?>" alt="Search">
+                                            <a class="my-basket dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                                <?= lang('your_basket') ?>
+                                                <span class="sum-scope">
+                                                    (<span class="sumOfItems"><?= $cartItems['array'] == 0 ? lang('empty') : $sumOfItems ?></span>)
+                                                </span>
+                                                <i class="fa fa-angle-double-down" aria-hidden="true"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-right dropdown-cart" role="menu">
+                                                <?= $load::getCartItems($cartItems) ?>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                   
                                 </div>
                             </div>
                         </div>
