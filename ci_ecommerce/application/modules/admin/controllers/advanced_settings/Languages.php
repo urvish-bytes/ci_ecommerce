@@ -1,9 +1,5 @@
 <?php
-
-/*
- * @Author:    Kiril Kirkov
- *  Gitgub:    https://github.com/kirilkirkov
- */
+ 
 if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
 }
@@ -44,6 +40,7 @@ class Languages extends ADMIN_Controller
         if (!is_writable('application' . DIRECTORY_SEPARATOR . 'languages' . DIRECTORY_SEPARATOR)) {
             $data['writable'] = 'Languages folder is not writable!';
         }
+
         $data = array();
         $head = array();
         $head['title'] = 'Administration - Languages';
@@ -102,7 +99,6 @@ class Languages extends ADMIN_Controller
             $i++;
         }
         savefile($phpFile, $phpFileInclude);
-
 
         $i = 0;
         $prevFile = 'none';

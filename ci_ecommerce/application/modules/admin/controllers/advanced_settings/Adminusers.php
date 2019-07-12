@@ -1,9 +1,5 @@
 <?php
-
-/*
- * @Author:    Kiril Kirkov
- *  Gitgub:    https://github.com/kirilkirkov
- */
+ 
 if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
 }
@@ -25,9 +21,11 @@ class Adminusers extends ADMIN_Controller
             $this->session->set_flashdata('result_delete', 'User is deleted!');
             redirect('admin/adminusers');
         }
+
         if (isset($_GET['edit']) && !isset($_POST['username'])) {
             $_POST = $this->Admin_users_model->getAdminUsers($_GET['edit']);
         }
+        
         $data = array();
         $head = array();
         $head['title'] = 'Administration - Admin Users';
