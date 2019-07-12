@@ -130,6 +130,7 @@ class Home extends MY_Controller
         if ($data['product'] === null) {
             show_404();
         }
+
         $vars['publicDateAdded'] = $this->Home_admin_model->getValueStore('publicDateAdded');
         $this->load->vars($vars);
         $head['title'] = $data['product']['title'];
@@ -176,32 +177,24 @@ class Home extends MY_Controller
     {
         header("Content-Type:text/xml");
         echo '<?xml version="1.0" encoding="UTF-8"?>
-                <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+              <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
         $products = $this->Public_model->sitemap();
         $blogPosts = $this->Public_model->sitemapBlog();
 
         foreach ($blogPosts->result() as $row1) {
             echo '<url>
-
-      <loc>' . base_url('blog/' . $row1->url) . '</loc>
-
-      <changefreq>monthly</changefreq>
-
-      <priority>0.1</priority>
-
-   </url>';
+                    <loc>' . base_url('blog/' . $row1->url) . '</loc>
+                    <changefreq>monthly</changefreq>
+                    <priority>0.1</priority>
+                </url>';
         }
 
         foreach ($products->result() as $row) {
             echo '<url>
-
-      <loc>' . base_url($row->url) . '</loc>
-
-      <changefreq>monthly</changefreq>
-
-      <priority>0.1</priority>
-
-   </url>';
+                    <loc>' . base_url($row->url) . '</loc>
+                    <changefreq>monthly</changefreq>
+                    <priority>0.1</priority>
+                </url>';
         }
 
         echo '</urlset>';

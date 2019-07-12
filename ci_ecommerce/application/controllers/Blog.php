@@ -13,6 +13,7 @@ class Blog extends MY_Controller
         if (!in_array('blog', $this->nonDynPages)) {
             show_404();
         }
+
         $this->load->helper(array('pagination'));
         $this->load->Model('admin/Blog_model');
         $this->arhives = $this->Public_model->getArchives();
@@ -26,6 +27,7 @@ class Blog extends MY_Controller
         $head['title'] = @$arrSeo['title'];
         $head['description'] = @$arrSeo['description'];
         $head['keywords'] = str_replace(" ", ",", $head['title']);
+        
         if (isset($_GET['find'])) {
             $find = $_GET['find'];
         } else {
@@ -36,6 +38,7 @@ class Blog extends MY_Controller
         } else {
             $month = null;
         }
+        
         $data['posts'] = $this->Public_model->getPosts($this->num_rows, $page, $find, $month);
         $data['archives'] = $this->getBlogArchiveHtml();
         $data['bestSellers'] = $this->Public_model->getbestSellers();
@@ -49,12 +52,14 @@ class Blog extends MY_Controller
         if (!is_numeric($id) || $id <= 0) {
             show_404();
         }
+
         $data = array();
         $head = array();
         $data['article'] = $this->Public_model->getOnePost($id);
         if ($data['article'] == null) {
             show_404();
         }
+        
         $data['archives'] = $this->getBlogArchiveHtml();
         $head['title'] = $data['article']['title'];
         $head['description'] = url_title(character_limiter(strip_tags($data['article']['description']), 130));
@@ -65,20 +70,20 @@ class Blog extends MY_Controller
     private function getBlogArchiveHtml()
     {
         $html = '
-		<div class="alone title cloth-bg-color">
-					<span>' . lang('archive') . '</span>
-				</div>
-				';
+                <div class="alone title cloth-bg-color">
+    				<span>' . lang('archive') . '</span>
+    			</div>';
+                
         if ($this->arhives !== false) {
 
             $html .= '<ul class="blog-artchive">';
 
             foreach ($this->arhives as $archive) {
                 $html .= '
-					<li class="item">» <a href="' . LANG_URL . '/blog?from='
-                        . $archive['mintime'] . '&to=' . $archive['maxtime'] . '">'
-                        . $archive['month'] . '</a></li>
-				';
+    					<li class="item">» <a href="' . LANG_URL . '/blog?from='
+                            . $archive['mintime'] . '&to=' . $archive['maxtime'] . '">'
+                            . $archive['month'] . '</a>
+                        </li>';
             }
             $html .= '</ul>';
         } else {

@@ -35,9 +35,9 @@ class Products extends REST_Controller
         } else {
             // Set the response and exit
             $this->response([
-                'status' => FALSE,
-                'message' => 'No products were found'
-                    ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
+                                'status' => FALSE,
+                                'message' => 'No products were found'
+                            ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
         }
     }
 
@@ -56,9 +56,9 @@ class Products extends REST_Controller
         } else {
             // Set the response and exit
             $this->response([
-                'status' => FALSE,
-                'message' => 'No product were found'
-                    ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
+                                'status' => FALSE,
+                                'message' => 'No product were found'
+                            ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
         }
     }
 

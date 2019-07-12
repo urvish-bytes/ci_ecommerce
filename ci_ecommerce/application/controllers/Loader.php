@@ -100,6 +100,7 @@ class Loader extends MY_Controller
             header('HTTP/1.1 404 Not Found');
             return;
         }
+        
         $image_mime = null;
         if (function_exists('mime_content_type')) {
             $image_mime = mime_content_type($path);

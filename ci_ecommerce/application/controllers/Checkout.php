@@ -24,6 +24,7 @@ class Checkout extends MY_Controller
 
         if (isset($_POST['payment_type'])) {
             $errors = $this->userInfoValidate($_POST);
+            
             if (!empty($errors)) {
                 $this->session->set_flashdata('submit_error', $errors);
             } else {
@@ -31,6 +32,7 @@ class Checkout extends MY_Controller
                 $_POST['clean_referrer'] = cleanReferral($_POST['referrer']);
                 $_POST['user_id'] = isset($_SESSION['logged_user']) ? $_SESSION['logged_user'] : 0;
                 $orderId = $this->Public_model->setOrder($_POST);
+                
                 if ($orderId != false) {
                     /*
                      * Save product orders in vendors profiles
@@ -47,6 +49,7 @@ class Checkout extends MY_Controller
                 }
             }
         }
+
         $data['bank_account'] = $this->Orders_model->getBankAccountSettings();
         $data['cashondelivery_visibility'] = $this->Home_admin_model->getValueStore('cashondelivery_visibility');
         $data['paypal_email'] = $this->Home_admin_model->getValueStore('paypal_email');
@@ -67,6 +70,7 @@ class Checkout extends MY_Controller
     {
         $users = $this->Public_model->getNotifyUsers();
         $myDomain = $this->config->item('base_url');
+        
         if (!empty($users)) {
             foreach ($users as $user) {
                 $this->sendmail->sendTo($user, 'Admin', 'New order in ' . $myDomain, 'Hello, you have new order. Can check it in /admin/orders');
@@ -79,6 +83,7 @@ class Checkout extends MY_Controller
         if ($this->config->item('send_confirm_link') === true) {
             $link = md5($this->orderId . time());
             $result = $this->Public_model->setActivationLink($link, $this->orderId);
+            
             if ($result == true) {
                 $url = parse_url(base_url());
                 $msg = lang('please_confirm') . base_url('confirm/' . $link);
@@ -93,14 +98,17 @@ class Checkout extends MY_Controller
             $this->shoppingcart->clearShoppingCart();
             $this->session->set_flashdata('success_order', true);
         }
+
         if ($_POST['payment_type'] == 'Bank') {
             $_SESSION['order_id'] = $this->orderId;
             $_SESSION['final_amount'] = $_POST['final_amount'] . $_POST['amount_currency'];
             redirect(LANG_URL . '/checkout/successbank');
         }
+
         if ($_POST['payment_type'] == 'cashOnDelivery') {
             redirect(LANG_URL . '/checkout/successcash');
         }
+
         if ($_POST['payment_type'] == 'PayPal') {
             @set_cookie('paypal', $this->orderId, 2678400);
             $_SESSION['discountAmount'] = $_POST['discountAmount'];
@@ -120,6 +128,7 @@ class Checkout extends MY_Controller
         if (!filter_var($post['email'], FILTER_VALIDATE_EMAIL)) {
             $errors[] = lang('invalid_email');
         }
+        
         $post['phone'] = preg_replace("/[^0-9]/", '', $post['phone']);
         if (mb_strlen(trim($post['phone'])) == 0) {
             $errors[] = lang('invalid_phone');
