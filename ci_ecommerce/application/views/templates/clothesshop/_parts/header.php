@@ -151,7 +151,7 @@
                                                             </div>
                                                         </div>
                                                         <button type="submit" class="btn btn-inner-search cloth-bg-color">
-                                                            <i class="fa fa-search" aria-hidden="true"></i>
+                                                            <i class="fa fa-search" aria-hidden="true"></i> Search
                                                         </button>
                                                         <a class="btn btn-default" id="clear-form" href="javascript:void(0);"><?= lang('clear_form') ?></a>
                                                     </div>

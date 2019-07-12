@@ -105,3 +105,45 @@ ERROR - 2019-07-12 15:21:30 --> 404 Page Not Found: /index
 ERROR - 2019-07-12 15:21:30 --> 404 Page Not Found: /index
 ERROR - 2019-07-12 15:22:02 --> 404 Page Not Found: /index
 ERROR - 2019-07-12 15:22:03 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:25:21 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:25:21 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:27:43 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:27:44 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:27:50 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:27:51 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:29:18 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:29:30 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:29:30 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:29:37 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:29:37 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:30:23 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:30:23 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:32:07 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:32:08 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:32:25 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:32:25 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:32:30 --> 404 Page Not Found: ../modules/admin/controllers/blog//index
+ERROR - 2019-07-12 15:32:35 --> 404 Page Not Found: ../modules/admin/controllers/blog//index
+ERROR - 2019-07-12 15:32:43 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:32:43 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:32:55 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:32:55 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:34:25 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:34:25 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:34:32 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:34:33 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:34:43 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:34:44 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:35:52 --> Severity: Notice --> Undefined index: brand_id D:\xampp\htdocs\git_demo\ci_ecommerce\application\modules\vendor\models\Products_model.php 52
+ERROR - 2019-07-12 15:36:09 --> Image Upload Error: <p>You did not select a file to upload.</p>
+ERROR - 2019-07-12 15:36:09 --> Severity: Notice --> Undefined index: brand_id D:\xampp\htdocs\git_demo\ci_ecommerce\application\modules\vendor\models\Products_model.php 34
+ERROR - 2019-07-12 15:39:22 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:39:22 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:41:52 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:41:52 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:45:37 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:45:37 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:45:47 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:45:48 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:46:01 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:46:01 --> 404 Page Not Found: /index
