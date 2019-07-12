@@ -12,19 +12,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="title alone cloth-bg-color">
                             <span><?= lang('checkout') ?></span>
                         </div>
-                        <?php
-                        if ($this->session->flashdata('submit_error')) {
+                        <?php if ($this->session->flashdata('submit_error')) {
                             ?>
                             <hr>
-                            <div class="alert alert-danger"><h4><span class="glyphicon glyphicon-alert"></span> <?= lang('finded_errors') ?></h4><?php
+                            <div class="alert alert-danger">
+                                <h4><span class="glyphicon glyphicon-alert"></span> <?= lang('finded_errors') ?></h4>
+                                <?php
                                 foreach ($this->session->flashdata('submit_error') as $error)
                                     echo $error . '<br>';
                                 ?>
                             </div>
                             <hr>
-                            <?php
-                        }
-                        ?>
+                        <?php } ?>
+
                         <div class="row payment-type-box">
                             <div class="col-xs-12">
                                 <span class="top-header"><?= lang('choose_payment') ?>:</span>
@@ -39,6 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </select>
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="form-group col-sm-6">
                                 <label for="firstNameInput"><?= lang('first_name') ?> (<sup><?= lang('requires') ?></sup>)</label>
@@ -73,6 +74,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <textarea id="notesInput" class="form-control" name="notes" rows="3"><?= @$_POST['notes'] ?></textarea>
                             </div>
                         </div>
+
                         <?php if ($codeDiscounts == 1) { ?>
                             <div class="discount">
                                 <label><?= lang('discount_code') ?></label>
@@ -80,6 +82,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <a href="javascript:void(0);" class="btn btn-default" onclick="checkDiscountCode()"><?= lang('check_code') ?></a>
                             </div>
                         <?php } ?>
+
                         <div class="table-responsive">
                             <table class="table table-bordered table-products">
                                 <thead>
@@ -102,14 +105,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                     <i class="fa fa-times" aria-hidden="true"></i>
                                                 </a>
                                             </td>
-                                            <td><a href="<?= LANG_URL . '/' . $item['url'] ?>"><?= $item['title'] ?></a></td>
+                                            <td>
+                                                <a href="<?= LANG_URL . '/' . $item['url'] ?>"><?= $item['title'] ?></a>
+                                            </td>
                                             <td>
                                                 <a class="btn btn-xs btn-primary refresh-me add-to-cart <?= $item['quantity'] <= $item['num_added'] ? 'disabled' : '' ?>" data-id="<?= $item['id'] ?>" href="javascript:void(0);">
                                                     <span class="glyphicon glyphicon-plus"></span>
                                                 </a>
-                                                <span class="quantity-num">
-                                                    <?= $item['num_added'] ?>
-                                                </span>
+                                                <span class="quantity-num"><?= $item['num_added'] ?></span>
                                                 <a class="btn  btn-xs btn-danger" onclick="removeProduct(<?= $item['id'] ?>, true)" href="javascript:void(0);">
                                                     <span class="glyphicon glyphicon-minus"></span>
                                                 </a>
@@ -131,6 +134,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </table>
                         </div>
                     </form>
+
                     <div>
                         <a href="<?= LANG_URL ?>" class="btn cloth-bg-color go-shop">
                             <i class="fa fa-angle-left" aria-hidden="true"></i> 
@@ -144,6 +148,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="clearfix"></div>
                     </div>
                 </div>
+
                 <div class="col-sm-3"> 
                     <div class="filter-sidebar">
                         <div class="title cloth-bg-color">
@@ -155,33 +160,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <?php
             include 'bodyFooter.php';
-        } else {
-            ?>
+        } else { ?>
             <div class="alert alert-info"><?= lang('no_products_in_cart') ?></div>
-            <?php
-        }
-        ?>
+        <?php } ?>
     </div>
 </div>
+
 <?php
-if ($this->session->flashdata('deleted')) {
-    ?>
-<script>
-$(document).ready(function () {
-    ShowNotificator('alert-info', '<?= $this->session->flashdata('deleted') ?>');
-});
-</script>
-<?php } if ($codeDiscounts == 1 && isset($_POST['discountCode'])) {
-    ?>
-<script>
-$(document).ready(function () {
-    checkDiscountCode();
-});
-</script>
+if ($this->session->flashdata('deleted')) { ?>
+    <script>
+        $(document).ready(function () {
+            ShowNotificator('alert-info', '<?= $this->session->flashdata('deleted') ?>');
+        });
+    </script>
+<?php }
+
+if ($codeDiscounts == 1 && isset($_POST['discountCode'])) { ?>
+    <script>
+        $(document).ready(function () {
+            checkDiscountCode();
+        });
+    </script>
 <?php } ?>
+
 <script src="<?= base_url('assets/js/jquery.nice-select.min.js') ?>"></script>
 <script>
-$(document).ready(function () {
-    $('select').niceSelect();
-});
+    $(document).ready(function () {
+        $('select').niceSelect();
+    });
 </script>
