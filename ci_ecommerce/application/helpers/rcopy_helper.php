@@ -9,6 +9,7 @@ function rcopy($from, $to)
     if (file_exists($to)) {
         rrmdir($to);
     }
+    
     if (is_dir($from)) {
         mkdir($to, 0777, true);
         $files = scandir($from);

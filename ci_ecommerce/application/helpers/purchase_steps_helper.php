@@ -33,6 +33,7 @@ function purchase_steps($step1 = null, $step2 = null, $step3 = null)
         $class3 = 'step-bg-not-ok';
     }
     ?>
+    
     <div class="row steps">
         <div class="col-sm-4 step <?= $class1 ?>">
             <img src="<?= base_url('assets/imgs/' . $icon1) ?>" alt="Ok"> <?= lang('step_your_order') ?>
