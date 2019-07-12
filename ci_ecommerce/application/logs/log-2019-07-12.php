@@ -147,3 +147,30 @@ ERROR - 2019-07-12 15:45:47 --> 404 Page Not Found: /index
 ERROR - 2019-07-12 15:45:48 --> 404 Page Not Found: /index
 ERROR - 2019-07-12 15:46:01 --> 404 Page Not Found: /index
 ERROR - 2019-07-12 15:46:01 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:56:27 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:56:27 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:57:16 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:57:16 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:58:12 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:58:12 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:59:01 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:59:01 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:59:34 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 15:59:34 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 16:01:38 --> Could not find the language line "vendor_home_page"
+ERROR - 2019-07-12 16:01:42 --> Could not find the language line "vendor_home_page"
+ERROR - 2019-07-12 16:01:44 --> Could not find the language line "vendor_home_page"
+ERROR - 2019-07-12 16:01:47 --> Could not find the language line "vendor_home_page"
+ERROR - 2019-07-12 16:01:51 --> Could not find the language line "vendor_home_page"
+ERROR - 2019-07-12 16:01:57 --> Could not find the language line "vendor_home_page"
+ERROR - 2019-07-12 16:03:03 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 16:03:04 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 16:03:28 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 16:03:28 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 16:03:40 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 16:03:40 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 16:03:47 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 16:03:47 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 16:04:30 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 16:14:32 --> 404 Page Not Found: /index
+ERROR - 2019-07-12 16:14:32 --> 404 Page Not Found: /index
