@@ -18,25 +18,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <legend><?= lang('contact_details') ?></legend>
                     <form method="POST" action=""> 
                         <div class="form-group">
-                            <label for="name">
-                                <?= lang('name') ?></label>
+                            <label for="name"><?= lang('name') ?></label>
                             <input type="text" name="name" class="form-control" id="name" placeholder="Enter name" required="required" />
                         </div>
                         <div class="form-group">
-                            <label for="email">
-                                <?= lang('email_address') ?></label>
+                            <label for="email"><?= lang('email_address') ?></label>
                             <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" required="required" />
                         </div>
                         <div class="form-group">
-                            <label for="subject">
-                                <?= lang('subject') ?></label>
+                            <label for="subject"><?= lang('subject') ?></label>
                             <input type="text" name="subject" class="form-control" >
                         </div> 
                         <div class="form-group">
-                            <label for="name">
-                                <?= lang('message') ?></label>
-                            <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
-                                      placeholder="<?= lang('message') ?>"></textarea>
+                            <label for="name"><?= lang('message') ?></label>
+                            <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required" placeholder="<?= lang('message') ?>"></textarea>
                         </div>  
                         <button type="submit" class="btn btn-black" id="btnContactUs">
                             <?= lang('send_message') ?>
