@@ -23,7 +23,6 @@ class Products extends VENDOR_Controller
             $this->saveHistory('Delete product id - ' . $_GET['delete']);
             redirect('admin/products');
         }
-        
         $data = array();
         $head = array();
         $head['title'] = lang('vendor_products');
