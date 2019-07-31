@@ -22,21 +22,21 @@ class Checkout extends MY_Controller
         $head['description'] = @$arrSeo['description'];
         $head['keywords'] = str_replace(" ", ",", $head['title']);
 
-        if (isset($_POST['payment_type'])) {
+        if (isset($_POST['payment_type']))
+        {
             $errors = $this->userInfoValidate($_POST);
-            
-            if (!empty($errors)) {
+            if (!empty($errors)) 
+            {
                 $this->session->set_flashdata('submit_error', $errors);
             } else {
                 $_POST['referrer'] = $this->session->userdata('referrer');
                 $_POST['clean_referrer'] = cleanReferral($_POST['referrer']);
                 $_POST['user_id'] = isset($_SESSION['logged_user']) ? $_SESSION['logged_user'] : 0;
                 $orderId = $this->Public_model->setOrder($_POST);
-                
-                if ($orderId != false) {
-                    /*
-                     * Save product orders in vendors profiles
-                     */
+        
+                if ($orderId != false) 
+                {
+                    /* Save product orders in vendors profiles */
                     $this->setVendorOrders();
                     $this->orderId = $orderId;
                     $this->setActivationLink();
@@ -62,15 +62,12 @@ class Checkout extends MY_Controller
         $this->Public_model->setVendorOrder($_POST);
     }
 
-    /*
-     * Send notifications to users that have nofify=1 in /admin/adminusers
-     */
+    /* Send notifications to users that have nofify=1 in /admin/adminusers */
 
     private function sendNotifications()
     {
         $users = $this->Public_model->getNotifyUsers();
         $myDomain = $this->config->item('base_url');
-        
         if (!empty($users)) {
             foreach ($users as $user) {
                 $this->sendmail->sendTo($user, 'Admin', 'New order in ' . $myDomain, 'Hello, you have new order. Can check it in /admin/orders');
@@ -83,7 +80,6 @@ class Checkout extends MY_Controller
         if ($this->config->item('send_confirm_link') === true) {
             $link = md5($this->orderId . time());
             $result = $this->Public_model->setActivationLink($link, $this->orderId);
-            
             if ($result == true) {
                 $url = parse_url(base_url());
                 $msg = lang('please_confirm') . base_url('confirm/' . $link);
@@ -98,17 +94,14 @@ class Checkout extends MY_Controller
             $this->shoppingcart->clearShoppingCart();
             $this->session->set_flashdata('success_order', true);
         }
-
         if ($_POST['payment_type'] == 'Bank') {
             $_SESSION['order_id'] = $this->orderId;
             $_SESSION['final_amount'] = $_POST['final_amount'] . $_POST['amount_currency'];
             redirect(LANG_URL . '/checkout/successbank');
         }
-
         if ($_POST['payment_type'] == 'cashOnDelivery') {
             redirect(LANG_URL . '/checkout/successcash');
         }
-
         if ($_POST['payment_type'] == 'PayPal') {
             @set_cookie('paypal', $this->orderId, 2678400);
             $_SESSION['discountAmount'] = $_POST['discountAmount'];
@@ -128,7 +121,6 @@ class Checkout extends MY_Controller
         if (!filter_var($post['email'], FILTER_VALIDATE_EMAIL)) {
             $errors[] = lang('invalid_email');
         }
-        
         $post['phone'] = preg_replace("/[^0-9]/", '', $post['phone']);
         if (mb_strlen(trim($post['phone'])) == 0) {
             $errors[] = lang('invalid_phone');

@@ -39,10 +39,7 @@ class Home extends MY_Controller
         $this->render('home', $head, $data);
     }
 
-    /*
-     * Used from greenlabel template
-     * shop page
-     */
+    /* Used from greenlabel template - shop page */
 
     public function shop($page = 0)
     {
@@ -68,15 +65,15 @@ class Home extends MY_Controller
     private function getHomeCategories($categories)
     {
 
-        /*
-         * Tree Builder for categories menu
-         */
+        /* Tree Builder for categories menu */
 
         function buildTree(array $elements, $parentId = 0)
         {
             $branch = array();
-            foreach ($elements as $element) {
-                if ($element['sub_for'] == $parentId) {
+            foreach ($elements as $element) 
+            {
+                if ($element['sub_for'] == $parentId) 
+                {
                     $children = buildTree($elements, $element['id']);
                     if ($children) {
                         $element['children'] = $children;
@@ -86,12 +83,10 @@ class Home extends MY_Controller
             }
             return $branch;
         }
-
         return buildTree($categories);
     }
 
-    /*
-     * Called to add/remove quantity from cart
+    /* Called to add/remove quantity from cart
      * If is ajax request send POST'S to class ShoppingCart
      */
 
@@ -103,8 +98,7 @@ class Home extends MY_Controller
         $this->shoppingcart->manageShoppingCart();
     }
 
-    /*
-     * Called to remove product from cart
+    /* Called to remove product from cart
      * If is ajax request and send $_GET variable to the class
      */
 
@@ -127,6 +121,7 @@ class Home extends MY_Controller
         $head = array();
         $data['product'] = $this->Public_model->getOneProduct($id);
         $data['sameCagegoryProducts'] = $this->Public_model->sameCagegoryProducts($data['product']['shop_categorie'], $id);
+
         if ($data['product'] === null) {
             show_404();
         }
@@ -177,11 +172,12 @@ class Home extends MY_Controller
     {
         header("Content-Type:text/xml");
         echo '<?xml version="1.0" encoding="UTF-8"?>
-              <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+                <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
         $products = $this->Public_model->sitemap();
         $blogPosts = $this->Public_model->sitemapBlog();
 
-        foreach ($blogPosts->result() as $row1) {
+        foreach ($blogPosts->result() as $row1) 
+        {
             echo '<url>
                     <loc>' . base_url('blog/' . $row1->url) . '</loc>
                     <changefreq>monthly</changefreq>
@@ -189,15 +185,15 @@ class Home extends MY_Controller
                 </url>';
         }
 
-        foreach ($products->result() as $row) {
+        foreach ($products->result() as $row) 
+        {
             echo '<url>
                     <loc>' . base_url($row->url) . '</loc>
                     <changefreq>monthly</changefreq>
                     <priority>0.1</priority>
                 </url>';
         }
-
         echo '</urlset>';
     }
-
+    
 }

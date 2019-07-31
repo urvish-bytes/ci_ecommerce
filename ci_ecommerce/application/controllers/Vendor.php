@@ -1,8 +1,5 @@
 <?php
 
-/*
- * Only vendors class
- */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Vendor extends MY_Controller
@@ -30,9 +27,7 @@ class Vendor extends MY_Controller
         $head['vendor_url'] = LANG_URL . '/vendor/view/' . $vendor;
         $all_categories = $this->Public_model->getShopCategories();
 
-        /*
-         * Tree Builder for categories menu
-         */
+        /* Tree Builder for categories menu */
 
         function buildTree(array $elements, $parentId = 0)
         {
@@ -71,7 +66,7 @@ class Vendor extends MY_Controller
         if ($data['product'] === null) {
             show_404();
         }
-        
+
         $vars['publicDateAdded'] = $this->Home_admin_model->getValueStore('publicDateAdded');
         $this->load->vars($vars);
         $head['title'] = $vendorInfo['name'] . ' - ' . $data['product']['title'];
