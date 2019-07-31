@@ -1,18 +1,14 @@
 <?php
 
 defined('BASEPATH') OR exit('No direct script access allowed');
-/*
- * Shopping Cart class for manage products
- */
+/* Shopping Cart class for manage products */
 
 class ShoppingCart
 {
 
     protected $CI;
     public $sumValues;
-    /*
-     * 1 month expire time
-     */
+    /* 1 month expire time */
     private $cookieExpTime = 2678400;
 
     public function __construct()

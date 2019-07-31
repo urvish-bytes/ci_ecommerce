@@ -24,8 +24,7 @@ class Language
         $currency = $this->CI->config->item('currency');
         $currencyKey = $this->CI->config->item('currencyKey');
         $langLinkStart = '';
-        /*
-         * If try to select default language
+        /* If try to select default language
          * Go refresh clean url.. to dont have duplicate pages for google!
          * Else get the language
          */
