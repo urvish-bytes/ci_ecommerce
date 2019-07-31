@@ -17,8 +17,7 @@ class MY_Controller extends MX_Controller
         $this->loadTemplate();
     }
 
-    /*
-     * Render page from controller
+    /* Render page from controller
      * it loads header and footer auto
      */
 
@@ -51,8 +50,7 @@ class MY_Controller extends MX_Controller
         $this->load->view($this->template . '_parts/footer', $footer);
     }
 
-    /*
-     * Load variables from values-store
+    /* Load variables from values-store
      * texts, social media links, logos, etc.
      */
 
@@ -86,9 +84,7 @@ class MY_Controller extends MX_Controller
         return $vars;
     }
 
-    /*
-     * Get all added languages from administration
-     */
+    /* Get all added languages from administration */
 
     private function getAllLangs()
     {
@@ -102,8 +98,7 @@ class MY_Controller extends MX_Controller
         return $arr;
     }
 
-    /*
-     * Active pages for navigation
+    /* Active pages for navigation
      * Managed from administration
      */
 
@@ -118,15 +113,12 @@ class MY_Controller extends MX_Controller
                 $actDynPages[] = $acp;
             }
         }
-
         $this->nonDynPages = $actDynPages;
         $dynPages = getTextualPages($activeP);
         $this->dynPages = $this->Public_model->getDynPagesLangs($dynPages);
     }
 
-    /*
-     * Email subscribe form from footer
-     */
+    /* Email subscribe form from footer */
 
     private function checkForPostRequests()
     {
@@ -141,7 +133,6 @@ class MY_Controller extends MX_Controller
                 $res = $this->Public_model->setSubscribe($arr);
                 $this->session->set_flashdata('emailAdded', lang('email_added'));
             }
-            
             if (!headers_sent()) {
                 redirect();
             } else {
@@ -150,9 +141,7 @@ class MY_Controller extends MX_Controller
         }
     }
 
-    /*
-     * Set referrer to save it in orders
-     */
+    /* Set referrer to save it in orders */
 
     private function setReferrer()
     {
@@ -166,8 +155,7 @@ class MY_Controller extends MX_Controller
         }
     }
 
-    /*
-     * Check for selected template 
+    /* Check for selected template 
      * and set it in config if exists
      */
 
