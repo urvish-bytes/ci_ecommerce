@@ -91,11 +91,11 @@
     </div>
 </footer>
 <?php if ($this->session->flashdata('emailAdded')) { ?>
-<script>
-    $(document).ready(function () {
-        ShowNotificator('alert-info', '<?= lang('email_added') ?>');
-    });
-</script>
+    <script>
+        $(document).ready(function () {
+            ShowNotificator('alert-info', '<?= lang('email_added') ?>');
+        });
+    </script>
     <?php
 }
 echo $addedJs;
@@ -118,11 +118,11 @@ if ($this->session->flashdata('userError')) {
 <script src="<?= base_url('assets/js/bootstrap.min.js') ?>"></script>
 <script src="<?= base_url('assets/js/placeholders.min.js') ?>"></script>
 <script>
-var variable = {
-    clearShoppingCartUrl: "<?= base_url('clearShoppingCart') ?>",
-    manageShoppingCartUrl: "<?= base_url('manageShoppingCart') ?>",
-    discountCodeChecker: "<?= base_url('discountCodeChecker') ?>"
-};
+    var variable = {
+        clearShoppingCartUrl: "<?= base_url('clearShoppingCart') ?>",
+        manageShoppingCartUrl: "<?= base_url('manageShoppingCart') ?>",
+        discountCodeChecker: "<?= base_url('discountCodeChecker') ?>"
+    };
 </script>
 <script src="<?= base_url('assets/js/system.js') ?>"></script>
 <script src="<?= base_url('templatejs/mine.js') ?>"></script>
