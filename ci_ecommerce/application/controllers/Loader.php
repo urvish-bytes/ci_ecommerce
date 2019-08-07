@@ -1,6 +1,7 @@
 <?php
 
 defined('BASEPATH') OR exit('No direct script access allowed');
+
 /* Set internal character encoding to UTF-8 */
 mb_internal_encoding("UTF-8");
 
@@ -13,9 +14,7 @@ class Loader extends MY_Controller
         $this->load->helper('file');
     }
 
-    /*
-     * Load language javascript file
-     */
+    /* Load language javascript file */
 
     public function jsFile($file = null)
     {
@@ -28,15 +27,14 @@ class Loader extends MY_Controller
         echo $contents;
     }
 
-    /*
-     * Load css generated from administration -> styles
-     */
+    /* Load css generated from administration -> styles */
 
     public function cssStyle()
     {
         $this->load->Model('admin/Home_admin_model');
         $style = $this->Home_admin_model->getValueStore('newStyle');
-        if ($style == null) {
+        if ($style == null) 
+        {
             $template = $this->template;
             $style = file_get_contents(VIEWS_DIR . $template . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR . 'css' . DIRECTORY_SEPARATOR . 'default-gradient.css');
             if (!$style) {
@@ -48,8 +46,7 @@ class Loader extends MY_Controller
         echo $style;
     }
 
-    /*
-     * Load css file for template
+    /* Load css file for template
      * Can call css file in folder /assets/css/ with templatecss/filename.css
      */
 
@@ -65,8 +62,7 @@ class Loader extends MY_Controller
         echo $style;
     }
 
-    /*
-     * Load js file for template
+    /* Load js file for template
      * Can call css file in folder /assets/js/ with templatecss/filename.js
      */
 
@@ -82,8 +78,7 @@ class Loader extends MY_Controller
         echo $js;
     }
 
-    /*
-     * Load images comming with template in folder /assets/imgs/
+    /* Load images comming with template in folder /assets/imgs/
      * Can call from view with template/imgs/filename.jpg
      */
 
@@ -100,7 +95,7 @@ class Loader extends MY_Controller
             header('HTTP/1.1 404 Not Found');
             return;
         }
-        
+
         $image_mime = null;
         if (function_exists('mime_content_type')) {
             $image_mime = mime_content_type($path);
@@ -114,5 +109,4 @@ class Loader extends MY_Controller
         }
         echo $img;
     }
-
 }

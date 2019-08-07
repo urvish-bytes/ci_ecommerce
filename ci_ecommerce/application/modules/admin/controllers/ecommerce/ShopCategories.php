@@ -1,5 +1,5 @@
 <?php
- 
+
 if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
 }
@@ -54,9 +54,7 @@ class ShopCategories extends ADMIN_Controller
         $this->saveHistory('Go to shop categories');
     }
 
-    /*
-     * Called from ajax
-     */
+    /* Called from ajax */
 
     public function editShopCategorie()
     {
@@ -65,9 +63,7 @@ class ShopCategories extends ADMIN_Controller
         $this->saveHistory('Edit shop categorie to ' . $_POST['name']);
     }
 
-    /*
-     * Called from ajax
-     */
+    /* Called from ajax */
 
     public function changePosition()
     {

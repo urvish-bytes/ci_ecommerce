@@ -54,70 +54,70 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <?php
                         if ($is_recursion === true) {
                             ?>
-                            </li>
-                            <?php
-                        }
+                        </li>
+                        <?php
                     }
+                }
 
-                    loop_tree($home_categories);
-                    ?>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-9 eqHeight" id="products-side">
-            <div class="alone title">
-                <span><?= lang('products') ?></span>
-            </div>
-            <div class="product-sort gradient-color">
-                <div class="row">
-                    <div class="ord col-sm-4">
-                        <div class="form-group">
-                            <select class="selectpicker order form-control" data-order-to="order_new">
-                                <option <?= isset($_GET['order_new']) && $_GET['order_new'] == "desc" ? 'selected' : '' ?> <?= !isset($_GET['order_new']) || $_GET['order_new'] == "" ? 'selected' : '' ?> value="desc"><?= lang('new') ?> </option>
-                                <option <?= isset($_GET['order_new']) && $_GET['order_new'] == "asc" ? 'selected' : '' ?> value="asc"><?= lang('old') ?> </option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="ord col-sm-4">
-                        <div class="form-group">
-                            <select class="selectpicker order form-control" data-order-to="order_price" title="<?= lang('price_title') ?>..">
-                                <option label="<?= lang('not_selected') ?>"></option>
-                                <option <?= isset($_GET['order_price']) && $_GET['order_price'] == "asc" ? 'selected' : '' ?> value="asc"><?= lang('price_low') ?> </option>
-                                <option <?= isset($_GET['order_price']) && $_GET['order_price'] == "desc" ? 'selected' : '' ?> value="desc"><?= lang('price_high') ?> </option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="ord col-sm-4">
-                        <div class="form-group">
-                            <select class="selectpicker order form-control" data-order-to="order_procurement" title="<?= lang('procurement_title') ?>..">
-                                <option label="<?= lang('not_selected') ?>"></option>
-                                <option <?= isset($_GET['order_procurement']) && $_GET['order_procurement'] == "desc" ? 'selected' : '' ?> value="desc"><?= lang('procurement_desc') ?> </option>
-                                <option <?= isset($_GET['order_procurement']) && $_GET['order_procurement'] == "asc" ? 'selected' : '' ?> value="asc"><?= lang('procurement_asc') ?> </option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <?php
-            if (!empty($products)) {
-                $load::getProducts($products, 'col-sm-4 col-md-3', false);
-            } else {
+                loop_tree($home_categories);
                 ?>
-                <script>
-                    $(document).ready(function () {
-                        ShowNotificator('alert-info', '<?= lang('no_results') ?>');
-                    });
-                </script>
-                <?php
-            }
-            ?>
+            </div>
         </div>
     </div>
-    <?php if ($links_pagination != '') { ?>
-        <div class="row">
-            <div class="col-sm-6 col-sm-offset-3">
-                <?= $links_pagination ?>
+    <div class="col-md-9 eqHeight" id="products-side">
+        <div class="alone title">
+            <span><?= lang('products') ?></span>
+        </div>
+        <div class="product-sort gradient-color">
+            <div class="row">
+                <div class="ord col-sm-4">
+                    <div class="form-group">
+                        <select class="selectpicker order form-control" data-order-to="order_new">
+                            <option <?= isset($_GET['order_new']) && $_GET['order_new'] == "desc" ? 'selected' : '' ?> <?= !isset($_GET['order_new']) || $_GET['order_new'] == "" ? 'selected' : '' ?> value="desc"><?= lang('new') ?> </option>
+                            <option <?= isset($_GET['order_new']) && $_GET['order_new'] == "asc" ? 'selected' : '' ?> value="asc"><?= lang('old') ?> </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="ord col-sm-4">
+                    <div class="form-group">
+                        <select class="selectpicker order form-control" data-order-to="order_price" title="<?= lang('price_title') ?>..">
+                            <option label="<?= lang('not_selected') ?>"></option>
+                            <option <?= isset($_GET['order_price']) && $_GET['order_price'] == "asc" ? 'selected' : '' ?> value="asc"><?= lang('price_low') ?> </option>
+                            <option <?= isset($_GET['order_price']) && $_GET['order_price'] == "desc" ? 'selected' : '' ?> value="desc"><?= lang('price_high') ?> </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="ord col-sm-4">
+                    <div class="form-group">
+                        <select class="selectpicker order form-control" data-order-to="order_procurement" title="<?= lang('procurement_title') ?>..">
+                            <option label="<?= lang('not_selected') ?>"></option>
+                            <option <?= isset($_GET['order_procurement']) && $_GET['order_procurement'] == "desc" ? 'selected' : '' ?> value="desc"><?= lang('procurement_desc') ?> </option>
+                            <option <?= isset($_GET['order_procurement']) && $_GET['order_procurement'] == "asc" ? 'selected' : '' ?> value="asc"><?= lang('procurement_asc') ?> </option>
+                        </select>
+                    </div>
+                </div>
             </div>
         </div>
-    <?php } ?>
+        <?php
+        if (!empty($products)) {
+            $load::getProducts($products, 'col-sm-4 col-md-3', false);
+        } else {
+            ?>
+            <script>
+                $(document).ready(function () {
+                    ShowNotificator('alert-info', '<?= lang('no_results') ?>');
+                });
+            </script>
+            <?php
+        }
+        ?>
+    </div>
+</div>
+<?php if ($links_pagination != '') { ?>
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <?= $links_pagination ?>
+        </div>
+    </div>
+<?php } ?>
 </div>

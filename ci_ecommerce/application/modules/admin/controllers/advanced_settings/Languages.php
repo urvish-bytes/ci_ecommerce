@@ -1,5 +1,5 @@
 <?php
- 
+
 if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
 }
@@ -18,7 +18,8 @@ class Languages extends ADMIN_Controller
         $this->login_check();
         if (isset($_GET['delete'])) {
             $result = $this->Languages_model->deleteLanguage($_GET['delete']);
-            if ($result == true) {
+            if ($result == true) 
+            {
                 $this->saveHistory('Delete language id - ' . $_GET['delete']);
                 $this->session->set_flashdata('result_delete', 'Language is deleted!');
             } else {
@@ -26,18 +27,24 @@ class Languages extends ADMIN_Controller
             }
             redirect('admin/languages');
         }
-        if (isset($_GET['editLang'])) {
+
+        if (isset($_GET['editLang'])) 
+        {
             $num = $this->Languages_model->countLangs($_GET['editLang']);
             if ($num == 0) {
                 redirect('admin/languages');
             }
             $langFiles = $this->getLangFolderForEdit();
         }
-        if (isset($_POST['goDaddyGo'])) {
+
+        if (isset($_POST['goDaddyGo'])) 
+        {
             $this->saveLanguageFiles();
             redirect('admin/languages');
         }
-        if (!is_writable('application' . DIRECTORY_SEPARATOR . 'languages' . DIRECTORY_SEPARATOR)) {
+
+        if (!is_writable('application' . DIRECTORY_SEPARATOR . 'languages' . DIRECTORY_SEPARATOR)) 
+        {
             $data['writable'] = 'Languages folder is not writable!';
         }
 
@@ -45,20 +52,24 @@ class Languages extends ADMIN_Controller
         $head = array();
         $head['title'] = 'Administration - Languages';
         $head['description'] = '!';
-        if (isset($langFiles)) {
+        if (isset($langFiles)) 
+        {
             $data['arrPhpFiles'] = $langFiles[0];
             $data['arrJsFiles'] = $langFiles[1];
         }
         $head['keywords'] = '';
         $data['languages'] = $this->Languages_model->getLanguages();
 
-        if (isset($_POST['name']) && isset($_POST['abbr'])) {
+        if (isset($_POST['name']) && isset($_POST['abbr'])) 
+        {
             $dublicates = $this->Languages_model->countLangs($_POST['name'], $_POST['abbr']);
-            if ($dublicates == 0) {
+            if ($dublicates == 0) 
+            {
                 $config['upload_path'] = '.' . DIRECTORY_SEPARATOR . 'attachments' . DIRECTORY_SEPARATOR . 'lang_flags' . DIRECTORY_SEPARATOR . '';
                 $config['allowed_types'] = 'gif|jpg|png';
                 $this->load->library('upload', $config);
-                if (!$this->upload->do_upload('userfile')) {
+                if (!$this->upload->do_upload('userfile')) 
+                {
                     $error = $this->upload->display_errors();
                     log_message('error', 'Language image upload error: ' . $error);
                 } else {
@@ -75,6 +86,7 @@ class Languages extends ADMIN_Controller
                 $this->session->set_flashdata('result_add', 'This language exsists!');
             redirect('admin/languages');
         }
+
         $data['max_input_vars'] = ini_get('max_input_vars');
         $this->load->view('_parts/header', $head);
         $this->load->view('advanced_settings/languages', $data);
@@ -87,8 +99,10 @@ class Languages extends ADMIN_Controller
         $i = 0;
         $prevFile = 'none';
         $phpFileInclude = "<?php \n";
-        foreach ($_POST['php_files'] as $phpFile) {
-            if ($phpFile != $prevFile && $i > 0) {
+        foreach ($_POST['php_files'] as $phpFile) 
+        {
+            if ($phpFile != $prevFile && $i > 0) 
+            {
                 savefile($prevFile, $phpFileInclude);
                 $phpFileInclude = "<?php \n";
             }
@@ -100,11 +114,14 @@ class Languages extends ADMIN_Controller
         }
         savefile($phpFile, $phpFileInclude);
 
+
         $i = 0;
         $prevFile = 'none';
         $jsFileInclude = "var lang = { \n";
-        foreach ($_POST['js_files'] as $jsFile) {
-            if ($jsFile != $prevFile && $i > 0) {
+        foreach ($_POST['js_files'] as $jsFile) 
+        {
+            if ($jsFile != $prevFile && $i > 0) 
+            {
                 $jsFileInclude .= "};";
                 savefile($prevFile, $jsFileInclude);
                 $jsFileInclude = "var lang = { \n";
@@ -122,16 +139,21 @@ class Languages extends ADMIN_Controller
         $langFiles = array();
         $files = rreadDir('application' . DIRECTORY_SEPARATOR . 'language' . DIRECTORY_SEPARATOR . '' . $_GET['editLang'] . DIRECTORY_SEPARATOR);
         $arrPhpFiles = $arrJsFiles = array();
-        foreach ($files as $ext => $filesLang) {
-            foreach ($filesLang as $fileLang) {
-                if ($ext == 'php') {
+        foreach ($files as $ext => $filesLang) 
+        {
+            foreach ($filesLang as $fileLang) 
+            {
+                if ($ext == 'php') 
+                {
                     require $fileLang;
-                    if (isset($lang)) {
+                    if (isset($lang)) 
+                    {
                         $arrPhpFiles[$fileLang] = $lang;
                         unset($lang);
                     }
                 }
-                if ($ext == 'js') {
+                if ($ext == 'js') 
+                {
                     $jsTrans = file_get_contents($fileLang);
                     preg_match_all('/(.+?)"(.+?)"/', $jsTrans, $PMA);
                     $arrJsFiles[$fileLang] = $PMA;
@@ -147,7 +169,8 @@ class Languages extends ADMIN_Controller
     private function createLangFolders()
     {
         $newLang = strtolower(trim($_POST['name']));
-        if ($newLang != '') {
+        if ($newLang != '') 
+        {
             $from = 'application' . DIRECTORY_SEPARATOR . 'language' . DIRECTORY_SEPARATOR . MY_DEFAULT_LANGUAGE_NAME;
             $to = 'application' . DIRECTORY_SEPARATOR . 'language' . DIRECTORY_SEPARATOR . $newLang;
             rcopy($from, $to);

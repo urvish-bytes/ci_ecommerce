@@ -16,7 +16,8 @@
                 <div class="alert alert-danger"><?= $this->session->flashdata('err_login') ?></div>
                 <?php
             }
-            ?></div>
+            ?>
+        </div>
         <div class="avatar"></div>
         <div class="form-box">
             <form action="" method="POST">

@@ -1,5 +1,5 @@
 <?php
- 
+
 if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
 }
@@ -34,6 +34,7 @@ class Blog extends ADMIN_Controller
         } else {
             $search = null;
         }
+        
         $data = array();
         $rowscount = $this->Blog_model->postsCount($search);
         $data['posts'] = $this->Blog_model->getPosts(null, $this->num_rows, $page, $search);

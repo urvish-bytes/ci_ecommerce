@@ -120,26 +120,26 @@
 <script src="<?= base_url('assets/js/bootstrap-datepicker.min.js') ?>"></script>
 <script src="<?= base_url('assets/js/bootstrap-toggle.min.js') ?>"></script>
 <script>
-                        $(document).ready(function () {
-                            $('[data-toggle="tooltip"]').tooltip();
-<?php if (isset($_POST['code'])) { ?>
-                                $('#addDiscountCode').modal('show');
-<?php } ?>
-                        });
-                        $('.datepicker').datepicker({
-                            format: "dd.mm.yyyy"
-                        });
-                        function generateDiscountCode() {
-                            var length = $('.codeLength').val();
-                            if (length < 3 || length == '') {
-                                alert('Too short discount code!');
-                            } else {
-                                var text = "";
-                                var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-                                for (var i = 0; i < length; i++) {
-                                    text += possible.charAt(Math.floor(Math.random() * possible.length));
-                                }
-                                $('[name="code"]').val(text.toUpperCase());
-                            }
-                        }
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+        <?php if (isset($_POST['code'])) { ?>
+            $('#addDiscountCode').modal('show');
+        <?php } ?>
+    });
+    $('.datepicker').datepicker({
+        format: "dd.mm.yyyy"
+    });
+    function generateDiscountCode() {
+        var length = $('.codeLength').val();
+        if (length < 3 || length == '') {
+            alert('Too short discount code!');
+        } else {
+            var text = "";
+            var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            for (var i = 0; i < length; i++) {
+                text += possible.charAt(Math.floor(Math.random() * possible.length));
+            }
+            $('[name="code"]').val(text.toUpperCase());
+        }
+    }
 </script>

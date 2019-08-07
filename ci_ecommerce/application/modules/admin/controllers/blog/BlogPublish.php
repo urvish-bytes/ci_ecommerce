@@ -1,5 +1,5 @@
 <?php
- 
+
 if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
 }
@@ -17,7 +17,8 @@ class BlogPublish extends ADMIN_Controller
     {
         $this->login_check();
         $trans_load = null;
-        if ($id > 0 && $_POST == null) {
+        if ($id > 0 && $_POST == null) 
+        {
             $_POST = $this->Blog_model->getOnePost($id);
             $trans_load = $this->Blog_model->getTranslations($id);
         }

@@ -1,5 +1,5 @@
 <?php
- 
+
 if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
 }
@@ -109,9 +109,7 @@ class Orders extends ADMIN_Controller
             $products = unserialize(html_entity_decode($_POST['products']));
             foreach ($products as $product_id => $product_quantity) {
                 $productInfo = modules::run('admin/ecommerce/products/getProductInfo', $product_id);
-                /*
-                 * If is virtual product, lets send email to user
-                 */
+                /* If is virtual product, lets send email to user */
                 if ($productInfo['virtual_products'] != null) {
                     if (!filter_var($_POST['userEmail'], FILTER_VALIDATE_EMAIL)) {
                         log_message('error', 'Ivalid customer email address! Cant send him virtual products!');

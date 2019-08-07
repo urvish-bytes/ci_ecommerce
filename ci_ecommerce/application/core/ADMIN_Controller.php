@@ -1,5 +1,5 @@
 <?php
- 
+
 if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
 }
@@ -70,10 +70,7 @@ class ADMIN_Controller extends MX_Controller
         if (!is_writable('.' . DIRECTORY_SEPARATOR . 'attachments')) {
             $errors[] = 'Attachments folder is not writable!';
         } else {
-            /*
-             *  Check attachment directories exsists..
-             *  ..and create him if no exsists
-             */
+            /* Check attachment directories exsists and create him if no exsists */
             if (!file_exists('.' . DIRECTORY_SEPARATOR . 'attachments' . DIRECTORY_SEPARATOR . 'blog_images')) {
                 $old = umask(0);
                 mkdir('.' . DIRECTORY_SEPARATOR . 'attachments' . DIRECTORY_SEPARATOR . 'blog_images', 0777, true);

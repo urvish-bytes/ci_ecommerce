@@ -8,9 +8,7 @@
     <script src="<?= base_url('assets/highcharts/highcharts.js') ?>"></script>
     <div id="container-by-month" style="min-width: 310px; height: 400px; margin: 0 auto;"></div>
     <script>
-        /*
-         * Chart for orders by mount/year 
-         */
+        /* Chart for orders by mount/year */
          $(function () {
             Highcharts.chart('container-by-month', {
                 title: {
@@ -22,7 +20,8 @@
                     x: -20
                 },
                 xAxis: {
-                    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
                 },
                 yAxis: {
                     title: {
@@ -44,12 +43,12 @@
                     borderWidth: 0
                 },
                 series: [
-                    <?php foreach ($ordersByMonth['years'] as $year) { ?>
-                        {
-                            name: '<?= $year ?>',
-                            data: [<?= implode(',', $ordersByMonth['orders'][$year]) ?>]
-                        },
-                    <?php } ?>
+                <?php foreach ($ordersByMonth['years'] as $year) { ?>
+                    {
+                        name: '<?= $year ?>',
+                        data: [<?= implode(',', $ordersByMonth['orders'][$year]) ?>]
+                    },
+                <?php } ?>
                 ]
             });
         });

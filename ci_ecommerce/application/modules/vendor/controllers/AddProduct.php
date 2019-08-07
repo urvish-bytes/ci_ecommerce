@@ -69,9 +69,7 @@ class AddProduct extends VENDOR_Controller
         return $img['file_name'];
     }
 
-    /*
-     * called from ajax
-     */
+    /* called from ajax */
 
     public function do_upload_others_images()
     {
@@ -113,13 +111,13 @@ class AddProduct extends VENDOR_Controller
                     while (($file = readdir($dh)) !== false) {
                         if (is_file($dir . $file)) {
                             $output .= '
-                                        <div class="other-img" id="image-container-' . $i . '">
-                                            <img src="' . base_url('attachments/shop_images/' . $_POST['folder'] . '/' . $file) . '" style="width:100px; height: 100px;">
-                                            <a href="javascript:void(0);" onclick="removeSecondaryProductImage(\'' . $file . '\', \'' . $_POST['folder'] . '\', ' . $i . ')">
-                                                <span class="glyphicon glyphicon-remove"></span>
-                                            </a>
-                                        </div>
-                                        ';
+                                <div class="other-img" id="image-container-' . $i . '">
+                                    <img src="' . base_url('attachments/shop_images/' . $_POST['folder'] . '/' . $file) . '" style="width:100px; height: 100px;">
+                                    <a href="javascript:void(0);" onclick="removeSecondaryProductImage(\'' . $file . '\', \'' . $_POST['folder'] . '\', ' . $i . ')">
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                    </a>
+                                </div>
+                               ';
                         }
                         $i++;
                     }
@@ -134,9 +132,7 @@ class AddProduct extends VENDOR_Controller
         }
     }
 
-    /*
-     * called from ajax
-     */
+    /* called from ajax */
 
     public function removeSecondaryImage()
     {

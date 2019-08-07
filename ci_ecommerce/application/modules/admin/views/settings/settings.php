@@ -68,7 +68,8 @@
                 <?php } ?>
                 <form method="POST" action="">
                     <div class="form-group">
-                        <textarea name="contactsPage" id="contacts-page"><?= $contactsPage ?></textarea></div>
+                        <textarea name="contactsPage" id="contacts-page"><?= $contactsPage ?></textarea>
+                    </div>
                     <div class="form-group">
                         <button class="btn btn-default" value="" placeholder="Find product.." type="submit">
                             Update <i class="fa fa-pencil-square-o" aria-hidden="true"></i>

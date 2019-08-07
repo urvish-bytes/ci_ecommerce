@@ -20,9 +20,7 @@ class Products extends REST_Controller
         $this->allowed_img_types = $this->config->item('allowed_img_types');
     }
 
-    /*
-     * Get All Products
-     */
+    /* Get All Products */
 
     public function all_get($lang)
     {
@@ -35,15 +33,13 @@ class Products extends REST_Controller
         } else {
             // Set the response and exit
             $this->response([
-                                'status' => FALSE,
-                                'message' => 'No products were found'
-                            ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
+                        'status' => FALSE,
+                        'message' => 'No products were found'
+                    ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
         }
     }
 
-    /*
-     * Get One Product
-     */
+    /* Get One Product */
 
     public function one_get($lang, $id)
     {
@@ -56,19 +52,18 @@ class Products extends REST_Controller
         } else {
             // Set the response and exit
             $this->response([
-                                'status' => FALSE,
-                                'message' => 'No product were found'
-                            ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
+                        'status' => FALSE,
+                        'message' => 'No product were found'
+                    ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
         }
     }
 
-    /*
-     * Set Product
-     */
+    /* Set Product */
 
     public function set_post()
     {
         $errors = [];
+
         $_POST['image'] = $this->uploadImage();
         if (!isset($_POST['translations']) || empty($_POST['translations'])) {
             $errors[] = 'No translations array or empty';

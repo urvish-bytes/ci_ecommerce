@@ -1,5 +1,5 @@
 <?php
- 
+
 if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
 }
@@ -68,18 +68,14 @@ class Products extends ADMIN_Controller
 
     public function getProductInfo($id, $noLoginCheck = false)
     {
-        /* 
-         * if method is called from public(template) page
-         */
+        /* if method is called from public(template) page */
         if ($noLoginCheck == false) {
             $this->login_check();
         }
         return $this->Products_model->getOneProduct($id);
     }
 
-    /*
-     * called from ajax
-     */
+    /* called from ajax */
 
     public function productStatusChange()
     {

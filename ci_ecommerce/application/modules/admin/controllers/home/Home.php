@@ -1,5 +1,5 @@
 <?php
- 
+
 if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
 }
@@ -35,9 +35,7 @@ class Home extends ADMIN_Controller
         $this->saveHistory('Go to home page');
     }
 
-    /*
-     * Called from ajax
-     */
+    /* Called from ajax */
 
     public function changePass()
     {

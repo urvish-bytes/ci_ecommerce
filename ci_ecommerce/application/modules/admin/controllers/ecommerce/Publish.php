@@ -1,5 +1,5 @@
 <?php
- 
+
 if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
 }
@@ -79,9 +79,7 @@ class Publish extends ADMIN_Controller
         return $img['file_name'];
     }
 
-    /*
-     * called from ajax
-     */
+    /* called from ajax */
 
     public function do_upload_others_images()
     {
@@ -144,9 +142,7 @@ class Publish extends ADMIN_Controller
         }
     }
 
-    /*
-     * called from ajax
-     */
+    /* called from ajax */
 
     public function removeSecondaryImage()
     {

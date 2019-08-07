@@ -65,12 +65,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="row row-info">
                 <div class="col-sm-6"><b><?= lang('num_added_to_cart') ?>:</b></div>
                 <div class="col-sm-6"><?php
-                @$result = array_count_values($_SESSION['shopping_cart']);
-                if (isset($result[$product['id']]))
-                    echo $result[$product['id']];
-                else
-                    echo 0;
-                ?></div>
+                    @$result = array_count_values($_SESSION['shopping_cart']);
+                    if (isset($result[$product['id']]))
+                        echo $result[$product['id']];
+                    else
+                        echo 0;
+                    ?></div>
                 <div class="col-sm-12 border-bottom"></div>
             </div>
             <?php if ($publicDateAdded == 1) { ?>
